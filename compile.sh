@@ -1,21 +1,23 @@
 #!/bin/bash
 
+sourceImage=`./sourceImage.sh`
+targetImage=`./targetImage.sh`
+
 tag(){
   tag=$1
   if [ -z $tag ]; then
     tag=latest
   fi
+  echo "* <!-- Start to tag"
   echo $tag
-  docker tag ssdb-docker-alpine_ssdb-alpine hillliu/ssdb-alpine:$tag
+  docker tag $sourceImage ${targetImage}:$tag
+  echo "* Finish tag -->"
 }
 
 push(){
-  tag=$1
-  if [ -z $tag ]; then
-    tag=latest
-  fi
-  echo $tag
-  docker push hillliu/ssdb-alpine
+  echo "* <!-- Start to push"
+  docker push ${targetImage}
+  echo "* Finish to push -->"
 }
 
 build(){
