@@ -46,12 +46,10 @@ build(){
   fi  
   if [ -z "$VERSION" ]; then
     BUILD_ARG=""
-    tag=latest
   else
     BUILD_ARG="--build-arg VERSION=${VERSION}"
-    tag=$VERSION
   fi
-  docker build ${BUILD_ARG}${NO_CACHE} -f ${DIR}/Dockerfile -t $sourceImage:$tag ${DIR}
+  docker build ${BUILD_ARG} ${NO_CACHE} -f ${DIR}/Dockerfile -t $sourceImage ${DIR}
   list
 }
 
@@ -82,11 +80,11 @@ case "$1" in
     build --no-cache
     ;;
   auto)
-    build $2
+    build
     tag
     ;;
   b)  
-    build $2
+    build
     ;;
   l)
     list
