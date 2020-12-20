@@ -2,6 +2,8 @@ FROM alpine:3.8
 
 ARG VERSION=${VERSION:-master}
 
+RUN echo Install Version: ${VERSION}
+
 RUN apk update && \
     apk add --virtual .build-deps curl make autoconf g++ && \
     mkdir -p /tmp/ssdb && \
