@@ -17,7 +17,7 @@ RUN mkdir -p /var/lib/ssdb && \
       -e 's@home.*@home /var/lib@' \
       -e 's/loglevel.*/loglevel info/' \
       -e 's@work_dir = .*@work_dir = /var/lib/ssdb@' \
-      -e 's@pidfile = .*@pidfile = /run/ssdb.pid@' \
+      -e 's@pidfile = .*@pidfile = /dev/shm/ssdb.pid@' \
       -e 's@level:.*@level: info@' \
       -e 's@ip:.*@ip: 0.0.0.0@' \
       -i /usr/local/ssdb/ssdb.conf
