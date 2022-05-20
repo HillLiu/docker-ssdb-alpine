@@ -1,0 +1,4 @@
+repositoryName=docker-ssdb-alpine
+repositoryOrgName=HillLiu
+dockerImageName=ssdb-alpine
+dockerOrgName=hillliu
