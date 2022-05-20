@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-INSTALL="libstdc++ libgcc"
+INSTALL="libstdc++"
 
 BUILD_DEPS="curl make autoconf g++"
 
