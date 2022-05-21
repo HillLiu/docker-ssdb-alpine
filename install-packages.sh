@@ -22,8 +22,8 @@ apk add --virtual .build-deps $BUILD_DEPS && apk add $INSTALL
 mkdir -p /tmp/src
 curl -Lk "https://github.com/ideawu/ssdb/archive/${INSTALL_VERSION}.tar.gz" \
   | tar -xz -C /tmp/src --strip-components=1
-mkdir -p /var/lib/ssdb \
-  && cd /tmp/src \
+cd /tmp/src \
+  && mkdir -p /var/lib/ssdb \
   && make \
   && make install \
   && sed \
