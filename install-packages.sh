@@ -19,14 +19,14 @@ echo ""
 
 apk add --virtual .build-deps $BUILD_DEPS && apk add $INSTALL
 
-mkdir -p /tmp/ssdb
-curl -Lk "https://github.com/ideawu/ssdb/archive/${INSTALL_VERSION}.tar.gz" | \
-  tar -xz -C /tmp/ssdb --strip-components=1
-mkdir -p /var/lib/ssdb && \
-  cd /tmp/ssdb && \
-  make && \
-  make install && \
-  sed \
+mkdir -p /tmp/src
+curl -Lk "https://github.com/ideawu/ssdb/archive/${INSTALL_VERSION}.tar.gz" \
+  | tar -xz -C /tmp/src --strip-components=1
+mkdir -p /var/lib/ssdb \
+  && cd /tmp/src \
+  && make \
+  && make install \
+  && sed \
     -e 's@home.*@home /var/lib@' \
     -e 's/loglevel.*/loglevel info/' \
     -e 's@work_dir = .*@work_dir = /var/lib/ssdb@' \
@@ -35,7 +35,7 @@ mkdir -p /var/lib/ssdb && \
     -e 's@ip:.*@ip: 0.0.0.0@' \
     -i /usr/local/ssdb/ssdb.conf
 
-rm -rf /tmp/ssdb
+rm -rf /tmp/src
 apk del -f .build-deps && rm -rf /var/cache/apk/* || exit 1
 
 exit 0
