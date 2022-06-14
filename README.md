@@ -3,6 +3,9 @@
 
 # `docker-ssdb-alpine`
 
+## GIT
+   * https://github.com/HillLiu/docker-ssdb-alpine
+
 ## Docker hub
    * https://hub.docker.com/r/hillliu/ssdb-alpine
 
