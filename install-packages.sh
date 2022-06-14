@@ -19,6 +19,11 @@ echo ""
 
 apk add --virtual .build-deps $BUILD_DEPS && apk add $INSTALL
 
+###
+# SSDB config
+# http://ideawu.github.io/ssdb-docs/config.html
+###
+
 mkdir -p /tmp/src
 curl -Lk "https://github.com/ideawu/ssdb/archive/${INSTALL_VERSION}.tar.gz" \
   | tar -xz -C /tmp/src --strip-components=1
@@ -33,6 +38,7 @@ cd /tmp/src \
     -e 's@pidfile = .*@pidfile = /dev/shm/ssdb.pid@' \
     -e 's@level:.*@level: info@' \
     -e 's@ip:.*@ip: 0.0.0.0@' \
+    -e 's@output:.*@output: stdout@' \
     -i /usr/local/ssdb/ssdb.conf
 
 rm -rf /tmp/src
