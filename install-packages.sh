@@ -39,7 +39,8 @@ cd /tmp/src \
     -e 's@level:.*@level: info@' \
     -e 's@ip:.*@ip: 0.0.0.0@' \
     -e 's@output:.*@output: stdout@' \
-    -e 's@compression:.*@compression: yes\n\tmax_open_files: 900000@' \
+    -e 's@write_buffer_size:.*@write_buffer_size: 384@' \
+    -e 's@compression:.*@compression: yes\n\tmax_open_files: 999999@' \
     -i /usr/local/ssdb/ssdb.conf
 
 rm -rf /tmp/src
