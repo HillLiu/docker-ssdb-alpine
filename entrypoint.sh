@@ -14,18 +14,14 @@ server:
 	# specify an ipv6 address to enable ipv6 support
 	ip: ${IP:-0.0.0.0}
 	port: ${PORT:-8888}
-
 	# format: allow|deny: all|ip_prefix
 	# multiple allows or denys is supported
 	#deny: all
 	#allow: 127.0.0.1
 	#allow: 192.168
-
 	# auth password must be at least 32 characters
 	#auth: very-strong-password
-
 	#readonly: yes
-
 	# in ms, to log slowlog with WARN level
 	#slowlog_timeout: 5
 
@@ -54,19 +50,19 @@ leveldb:
 	# Compaction Speed in MB/s
 	compaction_speed: ${COMPACTION_SPEED:-1000}
 	# Cache in MB
-	cache_size: ${CACHE_SIZE:-500}
+	cache_size: ${CACHE_SIZE:-512}
 	# Wirte Buffer in MB
 	write_buffer_size: ${WRITE_BUFFER_SIZE:-384}
-        # Max open files
+	# Max open files
 	max_open_files: ${MAX_OPEN_FILES:-99999}
 " > /usr/local/ssdb/ssdb.conf
 
-    ## Launch
-    exec /usr/local/ssdb/ssdb-server /usr/local/ssdb/ssdb.conf
+	## Launch
+	exec /usr/local/ssdb/ssdb-server /usr/local/ssdb/ssdb.conf
 }
 
 if [ "$1" = 'server' ]; then
-    server
+	server
 else
-    exec "$@"
+	exec "$@"
 fi
