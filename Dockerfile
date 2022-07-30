@@ -12,4 +12,5 @@ RUN apk update \
 
 EXPOSE 8888
 VOLUME /var/lib/ssdb
-ENTRYPOINT /usr/local/ssdb/ssdb-server /usr/local/ssdb/ssdb.conf
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["server"]

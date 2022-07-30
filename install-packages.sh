@@ -30,18 +30,7 @@ curl -Lk "https://github.com/ideawu/ssdb/archive/${INSTALL_VERSION}.tar.gz" \
 cd /tmp/src \
   && mkdir -p /var/lib/ssdb \
   && make \
-  && make install \
-  && sed \
-    -e 's@home.*@home /var/lib@' \
-    -e 's/loglevel.*/loglevel info/' \
-    -e 's@work_dir = .*@work_dir = /var/lib/ssdb@' \
-    -e 's@pidfile = .*@pidfile = /dev/shm/ssdb.pid@' \
-    -e 's@level:.*@level: info@' \
-    -e 's@ip:.*@ip: 0.0.0.0@' \
-    -e 's@output:.*@output: stdout@' \
-    -e 's@write_buffer_size:.*@write_buffer_size: 384@' \
-    -e 's@compression:.*@compression: yes\n\tmax_open_files: 999999@' \
-    -i /usr/local/ssdb/ssdb.conf
+  && make install
 
 rm -rf /tmp/src
 apk del -f .build-deps && rm -rf /var/cache/apk/* || exit 1
