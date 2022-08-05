@@ -52,7 +52,7 @@ leveldb:
 	# Cache in MB
 	cache_size: ${CACHE_SIZE:-512}
 	# Wirte Buffer in MB
-	write_buffer_size: ${WRITE_BUFFER_SIZE:-384}
+	write_buffer_size: ${WRITE_BUFFER_SIZE:-512}
 	# Max open files
 	max_open_files: ${MAX_OPEN_FILES:-99999}
 " > /usr/local/ssdb/ssdb.conf
