@@ -54,7 +54,7 @@ leveldb:
 	# Wirte Buffer in MB
 	write_buffer_size: ${WRITE_BUFFER_SIZE:-512}
 	# Max open files
-	max_open_files: ${MAX_OPEN_FILES:-99999}
+	max_open_files: ${MAX_OPEN_FILES:-999999}
 " > /usr/local/ssdb/ssdb.conf
 
 	## Launch
