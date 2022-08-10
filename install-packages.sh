@@ -24,15 +24,15 @@ apk add --virtual .build-deps $BUILD_DEPS && apk add $INSTALL
 # http://ideawu.github.io/ssdb-docs/config.html
 ###
 
-mkdir -p /tmp/src
+mkdir -p /tmp/ssdb-src
 curl -Lk "https://github.com/ideawu/ssdb/archive/${INSTALL_VERSION}.tar.gz" \
-  | tar -xz -C /tmp/src --strip-components=1
-cd /tmp/src \
+  | tar -xz -C /tmp/ssdb-src --strip-components=1
+cd /tmp/ssdb-src \
   && mkdir -p /var/lib/ssdb \
   && make \
   && make install
 
-rm -rf /tmp/src
+rm -rf /tmp/ssdb-src
 apk del -f .build-deps && rm -rf /var/cache/apk/* || exit 1
 
 exit 0
